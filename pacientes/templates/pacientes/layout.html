@@ -22,15 +22,34 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'registro' %}">Agregar Paciente</a>
-          </li>
+          {% if perms.pacientes.views_pacientes %}
+          
           <li class="nav-item">
             <a class="nav-link" href="{% url 'listado' %}">Listado</a>
           </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registro' %}">Agregar Paciente</a>
+          </li>
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registro' %}">Log out</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'listado' %}">Log in</a>
+          </li>
+          {% endif  %}
+          
         </ul>
         <span class="navbar-text">
-          muy insano </span>
+          {{user.username}} </span>
       </div>
     </div>
     
