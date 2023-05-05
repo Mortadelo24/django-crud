@@ -1,0 +1,14 @@
+{% extends 'pacientes/layout.html' %}
+
+{% block title %}
+Registrar
+{% endblock %}
+
+{%block main %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Registrar</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'pacientes/layout.html' %}
+
+{% block title %}
+Listado
+{% endblock %}
+
+{%block main %}
+
+<ul class="list-group">
+    {% for paciente in pacientes %}
+    <li class="list-group-item">{{paciente.nombre}} {{paciente.peso}}Kg</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
